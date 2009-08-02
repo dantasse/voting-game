@@ -1,0 +1,9 @@
+application: voting-game
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: voting_game.py
+  login: required

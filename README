@@ -1,0 +1,12 @@
+It's the voting game!
+
+Here's the idea: You and a bunch of friends are trying to decide what to do.  You all want to do different things, and nobody's really picky in one way or another, but you're all a little bit picky.  You fire up the voting game, create a new game, enter in all the things to do, and each person votes on each one on a 1-5 scale.  You total up the votes for each thing and whatever has the most points wins.  (and nobody's allowed to complain.)
+
+The code:
+datatypes.py holds the definitions of the objects that are used
+voting_game.py holds all the application code
+select_game.html is the template for the first page you see, in which you select a game to vote on
+index.html is the template for the rest of the app
+
+Dan Tasse (dan.tasse@gmail.com)
+7/30/2009

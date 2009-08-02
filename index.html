@@ -1,0 +1,59 @@
+<html>
+  <body>
+    {{ message }}
+    <p>
+      Logged in as: {{ user.nickname }}
+    </p>
+    <p>
+      Current Game: {{ game.name }}
+    </p>
+    <p>
+      Things to do:
+    </p>
+    <table>
+      {% for thingToDo in thingsToDo %}
+        <tr>
+          <td>{{ thingToDo.name }}</td>
+          <td>
+            <form action="/vote" method="post">
+              <!-- HTTP question:
+                Here I'm passing values by hidden HTML form values.  This is
+                nice, as the query string is not huge.  It's no safer, though,
+                because you can see these hidden inputs in the page source.
+                Also, you can only do this in a POST request, not a GET, right?
+              -->
+              <input type="hidden" name="gameKey" value="{{ game.key }}"></input>
+              <input type="hidden" name="thingToDoKey" value="{{ thingToDo.key }}"></input>
+              {% for voteValue in voteValues %}
+                <input type="submit" name="score" value="{{voteValue}}">
+              {% endfor %}
+              <!--old style, with a text box instead of buttons:-->
+              <!--<input type="text" name="score"></input>-->
+              <!--<input type="submit" value="Vote"></input>-->
+            </form>
+          </td>
+          <td>
+            <form action="/delete_thing?thingKey={{ thingToDo.key }}" method="post">
+              <input type="submit" value="Delete"></input>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+    <form action="/add_thing" method="post">
+      <input type="hidden" name="gameKey" value="{{ game.key }}"></input>
+      <input type="text" name="thingName"></input>
+      <input type="submit" value="Create a new Thing"></input>
+    </form>
+
+    <a href="/calculate_winner?gameKey={{ game.key }}">
+      Done voting, calculate winner
+    </a>
+
+    <form action="/logout" method="post">
+      <div><input type="submit" value="Log out"></div>
+    </form>
+
+  </body>
+</html>

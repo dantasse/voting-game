@@ -1,0 +1,24 @@
+<html>
+  <body>
+    Select which game you're playing. <br />
+    If there are no games, you must create one first. <br />
+    <!--TODO(dantasse) if games is empty, instead print
+      "there are no games"-->
+    <!--{% if games %}
+      There are games:
+    {% else %}
+      There are no games.
+    {% endif %}-->
+    <ul>
+      {% for game in games %}
+        <li>
+          <a href="/main?gameKey={{ game.key }}">{{ game.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <form action="/create_game" method="post">
+      <input type="text" name="gameName"></input>
+      <input type="submit" value="Create New Game"></input>
+    </form>
+  </body>
+</html>

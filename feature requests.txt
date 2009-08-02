@@ -1,0 +1,5 @@
+make the possibility to have multiple games
+css
+buttons become inactive after you vote
+better inputs than html forms?
+tests
