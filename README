@@ -8,5 +8,8 @@ voting_game.py holds all the application code
 select_game.html is the template for the first page you see, in which you select a game to vote on
 index.html is the template for the rest of the app
 
+The license:
+This software is provided with the MIT license.  See the file LICENSE for details.
+
 Dan Tasse (dan.tasse@gmail.com)
 7/30/2009
